@@ -28,6 +28,16 @@ export function Layout() {
   }, [loading, menuOpen])
 
   useEffect(() => {
+    const desktopViewport = window.matchMedia('(min-width: 901px)')
+    const closeMenuOnDesktop = (event: MediaQueryListEvent) => {
+      if (event.matches) setMenuOpen(false)
+    }
+
+    desktopViewport.addEventListener('change', closeMenuOnDesktop)
+    return () => desktopViewport.removeEventListener('change', closeMenuOnDesktop)
+  }, [])
+
+  useEffect(() => {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
       const timer = window.setTimeout(() => setLoading(false), 300)
       return () => window.clearTimeout(timer)

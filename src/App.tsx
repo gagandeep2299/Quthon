@@ -15,6 +15,16 @@ export default function App() {
     return () => { document.body.style.overflow = '' }
   }, [menuOpen])
 
+  useEffect(() => {
+    const desktopViewport = window.matchMedia('(min-width: 901px)')
+    const closeMenuOnDesktop = (event: MediaQueryListEvent) => {
+      if (event.matches) setMenuOpen(false)
+    }
+
+    desktopViewport.addEventListener('change', closeMenuOnDesktop)
+    return () => desktopViewport.removeEventListener('change', closeMenuOnDesktop)
+  }, [])
+
   return (
     <div className="site-shell">
       <a className="skip-link" href="#main-content">Skip to main content</a>
