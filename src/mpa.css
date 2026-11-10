@@ -7,3 +7,6 @@
 @media(max-width:760px){.contact-page-grid h2{font-size:clamp(36px,11vw,48px)}}
 @media(max-width:900px){html .inner-header .mobile-menu{background-color:var(--bg);background-image:none}}
 @media(min-width:901px){.mobile-menu{display:none}}
+@media(max-width:900px){.inner-header .mobile-menu{height:calc(100vh - 78px);height:calc(100dvh - 78px);max-height:none;color:var(--text);background-color:var(--bg)}}
+@media(max-width:760px){.inner-header .mobile-menu{height:calc(100vh - 68px);height:calc(100dvh - 68px)}}
+@media(max-width:900px){html[data-theme="light"] .inner-header .mobile-menu{background-color:#f4f6f8;color:#111827}html[data-theme="light"] .inner-header .mobile-menu>a{color:#111827}html[data-theme="light"] .inner-header .mobile-menu .mobile-cta{background:#087f72;color:#fff}}
